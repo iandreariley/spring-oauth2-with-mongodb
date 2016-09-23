@@ -1,0 +1,16 @@
+name: "Billy"
+
+security:
+  user:
+    password: password
+  oauth2:
+    client:
+      client-id: bill
+      client-secret: password
+      scope: read,write
+
+---
+
+spring:
+  profiles: dev
+name: "other name"
