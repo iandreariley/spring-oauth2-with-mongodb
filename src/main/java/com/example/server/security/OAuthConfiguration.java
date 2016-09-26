@@ -46,14 +46,6 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-//        BaseClientDetails testClient = new BaseClientDetails();
-//        testClient.setClientId("agent");
-//        testClient.setClientSecret("secret");
-//        testClient.setScope(Arrays.asList( new String[] { "read", "write"}));
-//        testClient.setAuthorizedGrantTypes(Arrays.asList( new String[] { "password", "reset_token" }));
-
-//        clientDetailsService.addClient(testClient);
-
         clients.withClientDetails(clientDetailsService);
     }
 }

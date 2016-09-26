@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @EnableResourceServer
 public class ResourceServer {
 
-    @RequestMapping("/one")
+    @RequestMapping("/auth")
     String resourceOne() {
         return "This is resource 1. Congratulations, it's yours.";
     }

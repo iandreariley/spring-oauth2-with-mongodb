@@ -34,8 +34,10 @@ public class MongoDbConfiguration extends AbstractMongoConfiguration  {
     @Bean
     public CustomConversions customConversions() {
         List<Converter<?, ?>> converterList = new ArrayList<Converter<?, ?>>();
-        OAuth2AuthenticationReadConverter converter = new OAuth2AuthenticationReadConverter();
-        converterList.add(converter);
+        OAuth2AuthenticationReadConverter authenticationReadConverter = new OAuth2AuthenticationReadConverter();
+        UserConverter userConverter = new UserConverter();
+        converterList.add(authenticationReadConverter);
+        converterList.add(userConverter);
         return new CustomConversions(converterList);
     }
 

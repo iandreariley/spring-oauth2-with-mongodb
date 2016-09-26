@@ -14,7 +14,7 @@ import java.util.Collection;
 /**
  * Created by Admin on 9/12/16.
  */
-public class UserDetailsServiceImpl implements UserDetailsService{
+public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     UserDetailsRepository userDetailsRepository;
@@ -22,12 +22,9 @@ public class UserDetailsServiceImpl implements UserDetailsService{
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
 
-        GrantedAuthority authority = new SimpleGrantedAuthority("admin");
-        Collection<GrantedAuthority> auths = new ArrayList<GrantedAuthority>();
-        auths.add(authority);
-        User user = new User("user", "password", auths);
+        UserDetails user = userDetailsRepository.findByUsername(s);
 
-        if(!s.equals("user")) {
+        if(!s.equals(user.getUsername())) {
             throw new UsernameNotFoundException("User with username " + s + " not found");
         } else {
             return  user;
